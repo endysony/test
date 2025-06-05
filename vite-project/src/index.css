@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+
+
+body {
+  zoom: 150%;
+  background:
+    url(assets/background.png), /* top layer (image) */
+    linear-gradient(to right, rgb(2, 2, 2), rgb(14, 12, 12), #70111f); /* bottom layer (gradient) */
+
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-attachment: fixed, fixed;
+  background-size: 41% auto, cover; /* image is small; gradient fills background */
+}
+
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navbar{
+  background: linear-gradient(to right, rgb(2, 2, 2),rgb(14, 12, 12),#790c1c);
+  box-shadow: 3px 3px 5px rgb(71, 71, 71);
+  padding-right: 15px;
+  padding-left: 15px;
+  height: 50px;
+  overflow: hidden;
+
+}
+.navdiv{
+  display: flex; align-items: center; justify-content: space-between; height: 100%;
+}
+.logo {
+  font-family: 'Imperial Script', cursive;
+  font-size: 45px;
+}
+li{
+  list-style: none; display: inline-block; 
+}
+li a{
+  font-size: 14px;
+}
+
+
+.navbar a{
+  color: hsla(0, 0%, 93%, 0.925);
+  text-decoration: none;
+  padding: 15px;
+  display: inline;
+  text-align: center;
+  position: relative;
+}
+.navbar a:hover{
+  color: hsl(0, 0%, 99%);
+}
+
+.navbar ul li a {
+  position: relative;
+  padding: 0 10px;
+  color: hsla(0, 0%, 93%, 0.925);
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+.navbar ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: rgb(216, 204, 204);
+  transition: width 0.3s ease;
+}
+.navbar ul li a:hover {
+  color: hsl(0, 0%, 99%);
+}
+
+.navbar ul li a:hover::after {
+  width: 100%;
+}
+
+.navbar a{
+  color: hsla(0, 0%, 93%, 0.925);
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  text-align: center;
+}
+.navbar a:hover{
+  color: white;
+}
+.navbar a:active{
+  color: hsl(0, 100%, 50%);
+}
+.navbar ul li a{
+  padding: 0 10px;
+}
+
+.menu-button{
+  display: none;
+}
+
+
+.cardContainer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  height: auto;
+  flex-wrap: nowrap;
+}
+
+.cardContainer .cardBox,.playlistBox{
+  border: 1px solid hsla(0, 10%, 16%, 0.986);
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.096);
+  padding: 20px;
+  margin: 5px;
+  text-align: center;
+  max-width: 200px;
+  width: 200px;
+  height: 300px;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  background: linear-gradient(to right, rgba(15, 15, 15, 0.274),rgb(27, 23, 23),#6e111f);
+  position: relative;
+  overflow: visible;
+  background-color: #08080827;
+}
+
+.photo{
+  max-width: 90%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.title{
+  font-size: 75%;
+  font-weight: light;
+}
+.artist{
+  font-size: 90%;
+  font-weight: lighter;
+  color: #857e7f;
+  margin-bottom: 5px;
+}
+.artistSize{
+  font-size: 70%;
+  font-weight: lighter;
+  color: #857e7f;
+  margin-bottom: 5px;
+
+}
+
+.toggle-button {
+  border: 2px solid transparent;
+  background-color: rgba(255, 0, 0, 0.555);
+  border-radius: 50%;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+
+}
+
+/* When mouse hovers */
+.toggle-button:hover {
+  background-color: rgba(214, 10, 10, 0.829);
+}
+
+.toggle-button:active {
+  transform: scale(0.95); /* makes it look "pressed" */
+  background-color: rgb(250, 10, 10);
+}
+
+.left-button, .right-button{
+  border: 2px solid transparent;
+  background-color: rgba(94, 90, 90, 0.555);
+  border-radius: 50%;
+  font-size: 8px;
+  width: 30px;
+  height: 30px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+.left-button:hover, .right-button:hover{
+  background-color: rgba(170, 161, 161, 0.829);
+
+}
+.left-button:active, .right-button:active{
+  transform: scale(0.95); /* makes it look "pressed" */
+  background-color: rgb(3, 0, 0);
+}
+.button-container{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100px;
+  display: none;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  z-index: 999;
+}
+.sidebar li{
+  width: 100%;
+}
+.sidebar a{
+  width: 100%;
+}
+
+
+.seekbar {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 3px;
+  background: #d8d3d3;
+  border-radius: 2px;
+  outline: none;
+  margin-top: 10px;
+}
+.seekbar:hover{
+  background-color: #6e111f;
+}
+
+/* Chrome, Safari, Edge */
+.seekbar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8px;
+  height: 8px;
+  background-color: #700d2e; /* blue thumb */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -3px;
+  position: center;
+
+}
+
+/* Firefox */
+.seekbar::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  background-color: #700d2e;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+/*Playlist Style Zone*/
+.playlistHeader{
+  margin: 0px;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.trackItem{
+  margin: -10px;
+  padding: 0;
+  margin-bottom: 20px;
+  display: flex;
+  height: 30px;                   /* set a fixed height */
+  border: none;         /* just to visualize */
+  border-radius: 5px;
+}
+
+.trackTitle{
+  text-align: left;
+  font-weight: lighter;
+  font-size: 62%;
+  margin-top: 6px;
+}
+.playControls{
+  border: 2px solid transparent;
+  background-color: rgba(94, 90, 90, 0.555);
+  border-radius: 50%;
+  font-size: 8px;
+  width: 20px;
+  height: 20px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+.playControls:hover{
+  background-color: #979191d3;
+}
+.playControls:active{
+  transform: scale(0.9);
+  background-color: #c50824;
+}
+
+
+
+
+
+
+@media (max-width: 600px) {
+  .logo{
+    font-size: 32px;
+    text-align: center;
+  }
+  .navbar ul{
+    display: flex;
+    gap: 10px;
+  }
+  
+  .navbar ul li a {
+    content: none;
+    font-size: 13px;
+    padding: 8px;
+  }
+  .navbar ul li a::after {
+  content: none;
+  }
+  .hideOnMobile{
+    display: none;
+  }
+  .menu-button{
+    display: block
+  }
+  .playlistBox {
+    display: none;
+  } 
+}
